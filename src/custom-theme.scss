@@ -1,12 +1,12 @@
 @use '@angular/material' as mat;
-
+@use './styles_theme-colors.scss' as theme-colors;
 body {
   background: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-large);
   color-scheme: light dark; //To set the mode depending on the user’s system preferences
   @include mat.theme((
-        color: mat.$magenta-palette,
+        color: theme-colors.$primary-palette,
         typography: Roboto,
   ));
 }
