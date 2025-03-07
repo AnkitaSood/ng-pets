@@ -13,7 +13,7 @@ import {NgOptimizedImage, TitleCasePipe} from "@angular/common";
     @if (pet) {
       <div class="container">
         <mat-card>
-          <img mat-card-image [ngSrc]="pet.imageUrl" width="400" height="400" [alt]="pet.name" class="pet-image">
+          <img mat-card-image priority [ngSrc]="pet.imageUrl" width="400" height="400" [alt]="pet.name" class="pet-image">
           <mat-card-header>
             <mat-card-title>{{ pet.name }}</mat-card-title>
             <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
