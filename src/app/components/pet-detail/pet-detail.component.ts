@@ -4,16 +4,16 @@ import { MatCardModule} from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet.service';
-import {TitleCasePipe} from "@angular/common";
+import {NgOptimizedImage, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-pet-detail',
-  imports: [MatCardModule, MatButton, TitleCasePipe],
+  imports: [MatCardModule, MatButton, TitleCasePipe, NgOptimizedImage],
   template: `
     @if (pet) {
       <div class="container">
         <mat-card>
-          <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
+          <img mat-card-image [ngSrc]="pet.imageUrl" width="400" height="400" [alt]="pet.name" class="pet-image">
           <mat-card-header>
             <mat-card-title>{{ pet.name }}</mat-card-title>
             <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
