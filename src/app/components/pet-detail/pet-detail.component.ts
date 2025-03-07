@@ -24,13 +24,19 @@ import {TitleCasePipe} from "@angular/common";
             <p><strong>Description:</strong></p>
             <p>{{ pet.description }}</p>
           </mat-card-content>
-          <mat-card-actions>
+          <mat-card-actions align="end">
             <button mat-stroked-button (click)="goBack()">BACK TO LIST</button>
+            <button mat-flat-button (click)="adopt()">ADOPT</button>
           </mat-card-actions>
         </mat-card>
       </div>
     }
-  `
+  `,
+  styles: [`
+  mat-card-actions {
+    gap: 1rem;
+  }
+  `]
 })
 export class PetDetailComponent implements OnInit {
   pet: Pet | undefined;
@@ -52,5 +58,9 @@ export class PetDetailComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/']);
+  }
+
+  adopt(): void {
+    this.router.navigate(['/adopt', this.pet?.id]);
   }
 }

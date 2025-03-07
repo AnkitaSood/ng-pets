@@ -39,7 +39,7 @@ import { PetService } from '../../services/pet.service';
                       <p>Age: {{ pet.age }} years</p>
                   </mat-card-content>
                   <mat-card-actions>
-                      <button mat-button (click)="viewDetails(pet.id)">VIEW DETAILS</button>
+                      <button mat-flat-button (click)="viewDetails(pet.id)">VIEW DETAILS</button>
                   </mat-card-actions>
               </mat-card>
           </div>
