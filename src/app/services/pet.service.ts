@@ -13,7 +13,7 @@ export class PetService {
       breed: 'Persian',
       age: 3,
       description: 'Luna is a gentle Persian cat with beautiful long fur. She loves to lounge in sunny spots and play with string toys.',
-      imageUrl: 'https://placecats.com/bella/300/200?fit=contain&position=top'
+      imageUrl: 'https://placecats.com/poppy/300/200?fit=contain&position=top'
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export class PetService {
       type: 'dog',
       breed: 'Golden Retriever',
       age: 2,
-      description: 'Max is an energetic Golden Retriever who loves to play fetch and swim. He\'s great with children and other pets.',
+      description: 'Max is an energetic British Retriever who loves to play fetch and swim. He\'s great with children and other pets.',
       imageUrl: 'https://placedog.net/800/640?id=17'
     },
     {
@@ -31,15 +31,15 @@ export class PetService {
       breed: 'Siamese',
       age: 4,
       description: 'Bella is a vocal Siamese cat who loves attention. She\'s very intelligent and can learn tricks quickly.',
-      imageUrl: 'https://placecats.com/neo/300/200fit=contain'
+      imageUrl: 'https://placecats.com/neo/300/200?fit=contain'
     },
     {
       id: 4,
       name: 'Rocky',
       type: 'dog',
-      breed: 'German Shepherd',
+      breed: 'Retriever Mix',
       age: 5,
-      description: 'Rocky is a loyal German Shepherd with excellent training. He\'s protective and great at following commands.',
+      description: 'Rocky is a loyal mixed breed pupper with excellent training. He\'s protective and great at following commands.',
       imageUrl: 'https://placedog.net/800/640?id=36'
     }
   ];

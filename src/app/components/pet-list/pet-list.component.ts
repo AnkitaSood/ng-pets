@@ -4,30 +4,27 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet.service';
 
 @Component({
   selector: 'app-pet-list',
-  standalone: true,
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
     MatListModule,
-    MatIconModule,
     MatButtonToggleModule
   ],
   template: `
     <div class="container">
       <mat-button-toggle-group class="view-toggle" [(value)]="viewMode">
         <mat-button-toggle value="grid">
-          <mat-icon>grid_view</mat-icon>
+          Grid View
         </mat-button-toggle>
         <mat-button-toggle value="list">
-          <mat-icon>view_list</mat-icon>
+          List View
         </mat-button-toggle>
       </mat-button-toggle-group>
 
@@ -43,7 +40,7 @@ import { PetService } from '../../services/pet.service';
               <p>Age: {{ pet.age }} years</p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button color="primary" (click)="viewDetails(pet.id)">VIEW DETAILS</button>
+              <button mat-button (click)="viewDetails(pet.id)">VIEW DETAILS</button>
             </mat-card-actions>
           </mat-card>
         </div>

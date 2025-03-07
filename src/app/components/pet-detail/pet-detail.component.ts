@@ -1,38 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
 import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet.service';
+import {TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-pet-detail',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [MatCardModule, MatButton, TitleCasePipe],
   template: `
-    <div class="container" *ngIf="pet">
-      <mat-card>
-        <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
-        <mat-card-header>
-          <mat-card-title>{{ pet.name }}</mat-card-title>
-          <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p><strong>Type:</strong> {{ pet.type | titlecase }}</p>
-          <p><strong>Age:</strong> {{ pet.age }} years</p>
-          <p><strong>Description:</strong></p>
-          <p>{{ pet.description }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="primary" (click)="goBack()">BACK TO LIST</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+    @if (pet) {
+      <div class="container">
+        <mat-card>
+          <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
+          <mat-card-header>
+            <mat-card-title>{{ pet.name }}</mat-card-title>
+            <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Type:</strong> {{ pet.type | titlecase }}</p>
+            <p><strong>Age:</strong> {{ pet.age }} years</p>
+            <p><strong>Description:</strong></p>
+            <p>{{ pet.description }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-stroked-button (click)="goBack()">BACK TO LIST</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    }
   `
 })
 export class PetDetailComponent implements OnInit {
-  pet?: Pet;
+  pet: Pet | undefined;
 
   constructor(
     private route: ActivatedRoute,

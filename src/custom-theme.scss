@@ -1,0 +1,22 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-large);
+  color-scheme: light dark; //To set the mode depending on the user’s system preferences
+  @include mat.theme((
+        color: mat.$red-palette,
+        typography: Roboto,
+  ));
+}
+
+.dark-theme {
+  color-scheme: dark;
+}
+
+.light-theme {
+  color-scheme: light;
+}
