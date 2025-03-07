@@ -48,7 +48,7 @@
   --mat-sys-surface-container: rgb(244 235 245);
   --mat-sys-surface-container-high: rgb(238 229 239);
   --mat-sys-surface-container-highest: rgb(232 224 234);
-
+  --mat-sys-hover-state-layer-opacity: .2;
 }
 
 @mixin dark-theme {
@@ -100,6 +100,7 @@
   --mat-sys-surface-container-low: rgb(30 26 33);
   --mat-sys-surface-container: rgb(34 30 37);
   --mat-sys-surface-container-high: rgb(45 40 48);
+  --mat-sys-hover-state-layer-opacity: .2;
   --mat-sys-surface-container-highest: rgb(56 51 59);
 }
 
