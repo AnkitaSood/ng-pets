@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+ :host {
+   display: block;
+   padding: 1rem;
+   @include mat.list-overrides((
+           list-item-two-line-container-height: 18.75rem,
+   ));
+
+   .list-image {
+     width: 18.75rem;
+     height: 12.5rem;
+   }
+ }
