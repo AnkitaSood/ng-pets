@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, inject, Renderer2} from "@angular/core";
 import {RouterOutlet} from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
@@ -9,21 +9,27 @@ import {MatIconModule} from "@angular/material/icon";
   standalone: true,
   imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule],
   template: `
-    <div [class]="isDarkTheme ? 'dark-theme' : 'light-theme'">
       <mat-toolbar>
-        <span>Pet Gallery</span>
-        <button mat-icon-button (click)="toggleTheme()">
-          <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
-        </button>
+          <span>Pet Gallery</span>
+          <button mat-icon-button (click)="toggleTheme()">
+              <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
+          </button>
       </mat-toolbar>
       <router-outlet></router-outlet>
-    </div>
   `
 })
 export class App {
   isDarkTheme = false;
+  private renderer: Renderer2 = inject(Renderer2);
 
   toggleTheme(): void {
     this.isDarkTheme = !this.isDarkTheme;
+    if (this.isDarkTheme) {
+      this.renderer.addClass(document.body, 'dark-theme');
+      this.renderer.removeClass(document.body, 'light-theme');
+    } else {
+      this.renderer.removeClass(document.body, 'dark-theme');
+      this.renderer.addClass(document.body, 'light-theme');
+    }
   }
 }
