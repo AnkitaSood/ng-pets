@@ -1,20 +1,22 @@
 @use '@angular/material' as mat;
-
+@use "sys-vars";
 body {
-  background: var(--mat-sys-surface);
+/*  background: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-large);
-  color-scheme: light dark; //To set the mode depending on the user’s system preferences
   @include mat.theme((
         color: mat.$magenta-palette,
         typography: Roboto,
-  ));
+  ));*/
+  @include sys-vars.typography;
 }
 
 .dark-theme {
-  color-scheme: dark;
+  //color-scheme: dark;
+  @include sys-vars.dark-theme;
 }
 
 .light-theme {
-  color-scheme: light;
+  //color-scheme: light;
+  @include sys-vars.light-theme;
 }
