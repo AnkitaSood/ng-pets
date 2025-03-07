@@ -1,0 +1,8 @@
+@use '@angular/material' as mat;
+
+:host {
+  @include mat.button-toggle-overrides((
+          shape: 0.25rem,
+          hover-state-layer-opacity: .4,
+  ))
+}

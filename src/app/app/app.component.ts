@@ -6,7 +6,6 @@ import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule],
   template: `
       <mat-toolbar>
@@ -16,7 +15,8 @@ import {MatIconModule} from "@angular/material/icon";
           </button>
       </mat-toolbar>
       <router-outlet></router-outlet>
-  `
+  `,
+  styleUrl: 'app.component.scss'
 })
 export class App {
   isDarkTheme = false;
