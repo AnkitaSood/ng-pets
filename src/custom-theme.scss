@@ -2,7 +2,6 @@
 @use "sys-vars";
 
 body {
-  @include sys-vars.typography;
   background: var(--mat-sys-surface);
   font: var(--mat-sys-body-large);
   color: var(--mat-sys-on-surface);

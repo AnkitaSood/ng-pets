@@ -3,11 +3,10 @@ import {RouterOutlet} from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {SearchComponent} from "../components/search/search.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule, SearchComponent],
+  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule],
   template: `
       <mat-toolbar>
           <span>Pet Gallery</span>
@@ -15,7 +14,6 @@ import {SearchComponent} from "../components/search/search.component";
               <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
           </button>
       </mat-toolbar>
-      <app-search/>
       <router-outlet></router-outlet>
   `,
   styleUrl: 'app.component.scss'

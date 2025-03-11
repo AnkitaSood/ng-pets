@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet.service';
+import {SearchComponent} from "../../ui-components/search/search.component";
 
 @Component({
   selector: 'app-pet-list',
@@ -15,9 +16,12 @@ import { PetService } from '../../services/pet.service';
     MatCardModule,
     MatButtonModule,
     MatListModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    SearchComponent,
   ],
   template: `
+    <app-search (search)="filterPets($event)" [placeholderTxt]="'Enter name or breed.'"/>
+    
       <mat-button-toggle-group class="view-toggle" [(value)]="viewMode">
           <mat-button-toggle value="grid">
               Grid View
@@ -29,7 +33,7 @@ import { PetService } from '../../services/pet.service';
 
       <ng-container *ngIf="viewMode === 'grid'">
           <div class="pet-grid">
-              <mat-card *ngFor="let pet of pets" class="pet-card">
+              <mat-card *ngFor="let pet of filteredPets" class="pet-card">
                   <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
                   <mat-card-header>
                       <mat-card-title>{{ pet.name }}</mat-card-title>
@@ -47,7 +51,7 @@ import { PetService } from '../../services/pet.service';
 
       <ng-container *ngIf="viewMode === 'list'">
           <mat-list>
-              <mat-list-item *ngFor="let pet of pets" class="pet-list-item" (click)="viewDetails(pet.id)">
+              <mat-list-item *ngFor="let pet of filteredPets" class="pet-list-item" (click)="viewDetails(pet.id)">
                   <img [src]="pet.imageUrl" [alt]="pet.name" class="list-image">
                   <div matListItemTitle>{{ pet.name }}</div>
                   <div matListItemLine>{{ pet.breed }} • {{ pet.age }} years old</div>
@@ -58,14 +62,21 @@ import { PetService } from '../../services/pet.service';
   styleUrl: 'pet-list.component.scss'
 })
 export class PetListComponent {
-  pets: Pet[] = [];
+  pets: Pet[] = this.petService.getPets();
+  filteredPets: Pet[] = this.petService.getPets();
   viewMode: 'grid' | 'list' = 'grid';
 
   constructor(
     private petService: PetService,
     private router: Router
   ) {
-    this.pets = this.petService.getPets();
+  }
+
+  filterPets(searchTerm: string): void {
+    this.filteredPets = this.pets.filter(pet =>
+        pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pet.breed.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }
 
   viewDetails(id: number): void {

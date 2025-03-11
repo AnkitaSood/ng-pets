@@ -1,3 +1,6 @@
+@use "@angular/material" as mat;
+@use "sys-vars";
+
 .container {
   padding: 20px;
 }
@@ -34,6 +37,17 @@ html, body {
   height: 100%;
 }
 
+.mat-mdc-form-field-subscript-wrapper:not(:has(mat-hint)):not(:has(mat-error)) {
+  display: none; //hide wrapper when no hint or error is present else it takes up extra space
+}
+
 body {
   margin: 0;
+  @include sys-vars.typography;
+  @include sys-vars.elevation;
+  @include sys-vars.global-vars;
+
+  @include mat.button-overrides((
+    container-shape: 0.50rem,
+  ));
 }
