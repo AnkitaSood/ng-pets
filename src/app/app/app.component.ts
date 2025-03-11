@@ -19,7 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
   styleUrl: 'app.component.scss'
 })
 export class App {
-  isDarkTheme = false;
+  isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ?? false;
   private renderer: Renderer2 = inject(Renderer2);
 
   toggleTheme(): void {
