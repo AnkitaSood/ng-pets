@@ -11,21 +11,8 @@
 
 .pet-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.pet-card {
-  max-width: 100%;
-}
-
-.pet-list-item {
-  margin-bottom: 10px;
-}
-
-.pet-image {
-  width: 100%;
-  object-fit: cover;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
 }
 
 .list-image {
