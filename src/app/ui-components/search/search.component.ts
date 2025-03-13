@@ -26,8 +26,9 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  @Output() search = new EventEmitter<string>();
   @Input() placeholderTxt: string = '';
+  @Output() search = new EventEmitter<string>();
+  @Output() cleared = new EventEmitter<boolean>();
   searchTerm = '';
 
   onSearch(): void {
@@ -37,5 +38,6 @@ export class SearchComponent {
   onClear(): void {
     this.searchTerm = '';
     this.search.emit('');
+    this.cleared.emit(true);
   }
 }
