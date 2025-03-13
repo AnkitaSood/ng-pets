@@ -6,6 +6,10 @@
           hover-state-layer-opacity: .4,
   ));
 
+  @include mat.toolbar-overrides((
+  title-text-size: 2.5rem,
+  ));
+
   mat-toolbar {
     gap: 1rem;
 
