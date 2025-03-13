@@ -13,7 +13,7 @@ import {
     MatCardModule
 } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {MatList, MatListModule} from '@angular/material/list';
+import {MatList, MatListItem, MatListModule} from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {Pet} from '../../models/pet.model';
 import {PetService} from '../../services/pet.service';
@@ -80,10 +80,10 @@ export class PetListComponent implements AfterViewInit {
 
     pets: Pet[] = this.petService.getPets();
     filteredPets: Pet[] = this.petService.getPets();
-    viewMode: 'grid' | 'list' = 'grid';
+    viewMode: 'grid' | 'list' = 'list';
     displayMatches = signal(false);
     @ViewChildren(MatCard) card!: QueryList<MatCard>;
-    @ViewChildren(MatList) list!: QueryList<MatList>;
+    @ViewChildren(MatListItem) list!: QueryList<MatListItem>;
 
     ngAfterViewInit(): void {
         console.info('ngAfterViewInit', this.card.length, this.list.length);
