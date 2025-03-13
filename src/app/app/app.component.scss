@@ -8,5 +8,10 @@
 
   mat-toolbar {
     gap: 1rem;
+
+    a {
+      color: var(--mat-sys-primary);
+      text-decoration: none;
+    }
   }
 }
