@@ -1,15 +1,15 @@
 import {Component, inject, Renderer2} from "@angular/core";
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule, RouterLink],
   template: `
       <mat-toolbar>
-          <span>Pet Gallery</span>
+          <a routerLink="">Pet Gallery</a>
           <button mat-icon-button (click)="toggleTheme()">
               <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
           </button>
