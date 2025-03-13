@@ -13,7 +13,7 @@ export class PetService {
       breed: 'Persian',
       age: 3,
       description: 'Luna is a gentle Persian cat with beautiful long fur. She loves to lounge in sunny spots and play with string toys.',
-      imageUrl: 'https://placecats.com/poppy/300/200?fit=contain&position=top'
+      imageUrl: 'https://placecats.com/poppy/800/640?fit=contain&position=top'
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ export class PetService {
       breed: 'Siamese',
       age: 4,
       description: 'Bella is a vocal Siamese cat who loves attention. She\'s very intelligent and can learn tricks quickly.',
-      imageUrl: 'https://placecats.com/neo/300/200?fit=contain'
+      imageUrl: 'https://placecats.com/neo/800/640?fit=contain'
     },
     {
       id: 4,
