@@ -30,7 +30,8 @@ import {SearchComponent} from "../../ui-components/search/search.component";
         MatCardModule, MatCard,
     ],
     template: `
-        <app-search (search)="filterPets($event)" (cleared)="clearFilter($event)"
+        <app-search (search)="filterPets($event)" 
+                    (cleared)="clearFilter($event)"
                     [placeholderTxt]="'Enter name or breed.'"/>
 
         @if (displayMatches()) {
@@ -44,9 +45,10 @@ import {SearchComponent} from "../../ui-components/search/search.component";
                 List View
             </mat-button-toggle>
         </mat-button-toggle-group>
-        <ng-container *ngIf="viewMode === 'grid'">
-            <div class="pet-grid">
-                <mat-card *ngFor="let pet of filteredPets" class="pet-card">
+        @if (viewMode === 'grid') {
+            <section class="pet-grid">
+                @for (pet of filteredPets; track pet.id) {
+                <mat-card class="pet-card">
                     <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
                     <mat-card-header>
                         <mat-card-title>{{ pet.name }}</mat-card-title>
@@ -59,19 +61,20 @@ import {SearchComponent} from "../../ui-components/search/search.component";
                         <button mat-flat-button (click)="viewDetails(pet.id)">VIEW DETAILS</button>
                     </mat-card-actions>
                 </mat-card>
-            </div>
-        </ng-container>
-
-        <ng-container *ngIf="viewMode === 'list'">
+                }
+            </section>
+        }
+        @if (viewMode === 'list') {
             <mat-list>
-                <mat-list-item *ngFor="let pet of filteredPets" class="pet-list-item" (click)="viewDetails(pet.id)">
+                @for (pet of filteredPets; track pet.id) {
+                    <mat-list-item class="pet-list-item" (click)="viewDetails(pet.id)">
                     <img [src]="pet.imageUrl" [alt]="pet.name" class="list-image">
                     <div matListItemTitle>{{ pet.name }}</div>
                     <div matListItemLine>{{ pet.breed }} • {{ pet.age }} years old</div>
                 </mat-list-item>
+                }
             </mat-list>
-        </ng-container>
-    `,
+        }`,
     styleUrl: 'pet-list.component.scss'
 })
 export class PetListComponent implements AfterViewInit {
