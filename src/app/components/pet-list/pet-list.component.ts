@@ -55,7 +55,7 @@ import {SearchComponent} from "../../ui-components/search/search.component";
                         <p>Age: {{ pet.age }} years</p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-flat-button (click)="viewDetails(pet.id)">VIEW DETAILS</button>
+                        <button matButton (click)="viewDetails(pet.id)">VIEW DETAILS</button>
                     </mat-card-actions>
                 </mat-card>
                 }

@@ -207,8 +207,8 @@
 }
 
 @mixin global-vars {
-  --mat-sys-corner-extra-small : 1rem;
-  --mat-sys-corner-medium: 1.5rem;
+  --mat-sys-corner-extra-small : .5rem;
+  --mat-sys-corner-medium: 1rem;
   --mat-sys-pressed-state-layer-opacity: .2;
   --mat-sys-focus-state-layer-opacity: .2;
   --mat-sys-hover-state-layer-opacity: .1;

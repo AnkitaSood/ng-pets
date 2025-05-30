@@ -35,6 +35,8 @@ body {
   @include sys-vars.global-vars;
 
   @include mat.button-overrides((
-    container-shape: 0.50rem,
+    text-container-shape: 0.50rem,
+    filled-container-shape: 0.50rem,
+    outlined-container-shape: 0.50rem,
   ));
 }

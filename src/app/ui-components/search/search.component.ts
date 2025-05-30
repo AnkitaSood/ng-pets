@@ -20,8 +20,8 @@ import {FormsModule} from "@angular/forms";
           <input matInput [(ngModel)]="searchTerm" [placeholder]="placeholderTxt()">
           <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
-      <button mat-flat-button (click)="onSearch()">Search</button>
-      <button mat-stroked-button (click)="onClear()">Clear</button>
+      <button matButton="filled" (click)="onSearch()">Search</button>
+      <button matButton="outlined" (click)="onClear()">Clear</button>
   `,
   styleUrl: './search.component.scss'
 })

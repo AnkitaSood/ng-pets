@@ -25,8 +25,8 @@ import {TitleCasePipe} from "@angular/common";
             <p>{{ pet.description }}</p>
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-stroked-button (click)="goBack()">BACK TO LIST</button>
-            <button mat-flat-button (click)="adopt()">ADOPT</button>
+            <button matButton  (click)="goBack()">BACK TO LIST</button>
+            <button matButton (click)="adopt()">ADOPT</button>
           </mat-card-actions>
         </mat-card>
       </div>
