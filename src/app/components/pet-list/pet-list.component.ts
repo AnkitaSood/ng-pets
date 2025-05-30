@@ -1,10 +1,7 @@
 import {
-    AfterViewInit,
     Component,
     inject,
-    QueryList,
     signal,
-    ViewChildren
 } from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
@@ -13,7 +10,7 @@ import {
     MatCardModule
 } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {MatListItem, MatListModule} from '@angular/material/list';
+import {MatListModule} from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {Pet} from '../../models/pet.model';
 import {PetService} from '../../services/pet.service';
@@ -77,7 +74,7 @@ import {SearchComponent} from "../../ui-components/search/search.component";
         }`,
     styleUrl: 'pet-list.component.scss'
 })
-export class PetListComponent implements AfterViewInit {
+export class PetListComponent {
     private readonly petService = inject(PetService);
     private readonly router = inject(Router);
 
@@ -85,12 +82,7 @@ export class PetListComponent implements AfterViewInit {
     filteredPets: Pet[] = this.petService.getPets();
     viewMode: 'grid' | 'list' = 'grid';
     displayMatches = signal(false);
-    @ViewChildren(MatCard) card!: QueryList<MatCard>;
-    @ViewChildren(MatListItem) list!: QueryList<MatListItem>;
 
-    ngAfterViewInit(): void {
-        console.info('ngAfterViewInit', this.card.length, this.list.length);
-    }
 
     filterPets(searchTerm: string): void {
         this.filteredPets = this.pets.filter(pet =>

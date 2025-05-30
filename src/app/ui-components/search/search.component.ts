@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
@@ -17,7 +17,7 @@ import {FormsModule} from "@angular/forms";
   template: `
       <mat-form-field appearance="outline" class="search-field">
           <mat-label>Search</mat-label>
-          <input matInput [(ngModel)]="searchTerm" [placeholder]="placeholderTxt">
+          <input matInput [(ngModel)]="searchTerm" [placeholder]="placeholderTxt()">
           <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
       <button mat-flat-button (click)="onSearch()">Search</button>
@@ -26,9 +26,9 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-    @Input({required: true}) placeholderTxt: string = '';
-    @Output() search = new EventEmitter<string>();
-    @Output() cleared = new EventEmitter<boolean>();
+    placeholderTxt = input.required<string>();
+    search = output<string>();
+    cleared = output<boolean>();
     searchTerm = '';
 
     onSearch(): void {
