@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatCardModule} from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
@@ -39,13 +39,11 @@ import {NgOptimizedImage, TitleCasePipe} from "@angular/common";
   `]
 })
 export class PetDetailComponent implements OnInit {
-  pet: Pet | undefined;
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private petService = inject(PetService);
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private petService: PetService
-  ) {}
+  pet: Pet | undefined;
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
