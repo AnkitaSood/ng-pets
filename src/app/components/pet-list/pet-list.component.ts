@@ -4,7 +4,7 @@ import {
     signal,
 } from '@angular/core';
 import {Router} from '@angular/router';
-import {CommonModule} from '@angular/common';
+
 import {
     MatCard,
     MatCardModule
@@ -19,13 +19,13 @@ import {SearchComponent} from "../../ui-components/search/search.component";
 @Component({
     selector: 'app-pet-list',
     imports: [
-        CommonModule,
-        MatButtonModule,
-        MatListModule,
-        MatButtonToggleModule,
-        SearchComponent,
-        MatCardModule, MatCard,
-    ],
+    MatButtonModule,
+    MatListModule,
+    MatButtonToggleModule,
+    SearchComponent,
+    MatCardModule,
+    MatCard
+],
     template: `
         <app-search (search)="filterPets($event)" 
                     (cleared)="clearFilter($event)"
