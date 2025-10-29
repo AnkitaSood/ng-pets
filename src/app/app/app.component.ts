@@ -14,7 +14,9 @@ import {MatIconModule} from "@angular/material/icon";
               <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
           </button>
       </mat-toolbar>
-      <router-outlet />
+      <main>
+          <router-outlet />
+      </main>
   `,
   styleUrl: 'app.component.scss'
 })

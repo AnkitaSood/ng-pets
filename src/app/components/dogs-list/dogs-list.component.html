@@ -1,0 +1,12 @@
+@if (dogs()) {
+  <div>
+    <h2>Dog Breeds</h2>
+    @for (breed of dogs()?.message | keyvalue; track breed.key) {
+      <ul>
+        <li>{{ breed.key }}</li>
+      </ul>
+    }
+  </div>
+} @else {
+  <p>Loading...</p>
+}

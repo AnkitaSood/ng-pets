@@ -1,10 +1,6 @@
 @use "@angular/material" as mat;
 @use "sys-vars";
 
-.container {
-  padding: 20px;
-}
-
 .view-toggle {
   margin-bottom: 20px;
 }
@@ -35,8 +31,8 @@ body {
   @include sys-vars.global-vars;
 
   @include mat.button-overrides((
-    text-container-shape: 0.50rem,
-    filled-container-shape: 0.50rem,
-    outlined-container-shape: 0.50rem,
+          text-container-shape: 0.50rem,
+          filled-container-shape: 0.50rem,
+          outlined-container-shape: 0.50rem,
   ));
 }

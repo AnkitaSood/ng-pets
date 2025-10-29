@@ -10,27 +10,25 @@ import {TitleCasePipe} from "@angular/common";
   selector: 'app-pet-detail',
   imports: [MatCardModule, MatButton, TitleCasePipe],
   template: `
-    @if (pet) {
-      <div class="container">
-        <mat-card>
-          <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
-          <mat-card-header>
-            <mat-card-title>{{ pet.name }}</mat-card-title>
-            <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p><strong>Type:</strong> {{ pet.type | titlecase }}</p>
-            <p><strong>Age:</strong> {{ pet.age }} years</p>
-            <p><strong>Description:</strong></p>
-            <p>{{ pet.description }}</p>
-          </mat-card-content>
-          <mat-card-actions align="end">
-            <button matButton  (click)="goBack()">BACK TO LIST</button>
-            <button matButton (click)="adopt()">ADOPT</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    }
+      @if (pet) {
+          <mat-card>
+              <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
+              <mat-card-header>
+                  <mat-card-title>{{ pet.name }}</mat-card-title>
+                  <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                  <p><strong>Type:</strong> {{ pet.type | titlecase }}</p>
+                  <p><strong>Age:</strong> {{ pet.age }} years</p>
+                  <p><strong>Description:</strong></p>
+                  <p>{{ pet.description }}</p>
+              </mat-card-content>
+              <mat-card-actions align="end">
+                  <button matButton (click)="goBack()">BACK TO LIST</button>
+                  <button matButton (click)="adopt()">ADOPT</button>
+              </mat-card-actions>
+          </mat-card>
+      }
   `,
   styles: [`
   mat-card-actions {
