@@ -6,5 +6,4 @@ import {DoglistResponse} from "../models/dog.model";
 export class DogsService {
     private readonly url = "https://dog.ceo/api/breeds/list/all"
     dogsResource = httpResource<DoglistResponse>(()=>this.url);
-
 }
