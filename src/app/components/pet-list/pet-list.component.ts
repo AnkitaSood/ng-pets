@@ -15,19 +15,21 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {Pet} from '../../models/pet.model';
 import {PetService} from '../../services/pet.service';
 import {SearchComponent} from "../../ui-components/search/search.component";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
     selector: 'app-pet-list',
     imports: [
-    MatButtonModule,
-    MatListModule,
-    MatButtonToggleModule,
-    SearchComponent,
-    MatCardModule,
-    MatCard
-],
+        MatButtonModule,
+        MatListModule,
+        MatButtonToggleModule,
+        SearchComponent,
+        MatCardModule,
+        MatCard,
+        NgOptimizedImage
+    ],
     template: `
-        <app-search (search)="filterPets($event)" 
+        <app-search (search)="filterPets($event)"
                     (cleared)="clearFilter($event)"
                     [placeholderTxt]="'Enter name or breed.'"/>
 
@@ -45,19 +47,20 @@ import {SearchComponent} from "../../ui-components/search/search.component";
         @if (viewMode === 'grid') {
             <section class="pet-grid">
                 @for (pet of filteredPets; track pet.id) {
-                <mat-card class="pet-card">
-                    <img mat-card-image [src]="pet.imageUrl" [alt]="pet.name" class="pet-image">
-                    <mat-card-header>
-                        <mat-card-title>{{ pet.name }}</mat-card-title>
-                        <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Age: {{ pet.age }} years</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button matButton (click)="viewDetails(pet.id)">VIEW DETAILS</button>
-                    </mat-card-actions>
-                </mat-card>
+                    <mat-card class="pet-card">
+                        <img mat-card-image [ngSrc]="pet.imageUrl" [alt]="pet.name" class="pet-image" width="350"
+                             height="300">
+                        <mat-card-header>
+                            <mat-card-title>{{ pet.name }}</mat-card-title>
+                            <mat-card-subtitle>{{ pet.breed }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>Age: {{ pet.age }} years</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button matButton (click)="viewDetails(pet.id)">VIEW DETAILS</button>
+                        </mat-card-actions>
+                    </mat-card>
                 }
             </section>
         }
@@ -65,10 +68,10 @@ import {SearchComponent} from "../../ui-components/search/search.component";
             <mat-list>
                 @for (pet of filteredPets; track pet.id) {
                     <mat-list-item class="pet-list-item" (click)="viewDetails(pet.id)">
-                    <img [src]="pet.imageUrl" [alt]="pet.name" class="list-image">
-                    <div matListItemTitle>{{ pet.name }}</div>
-                    <div matListItemLine>{{ pet.breed }} • {{ pet.age }} years old</div>
-                </mat-list-item>
+                        <img [ngSrc]="pet.imageUrl" [alt]="pet.name" width="350" height="400" class="list-image">
+                        <div matListItemTitle>{{ pet.name }}</div>
+                        <div matListItemLine>{{ pet.breed }} • {{ pet.age }} years old</div>
+                    </mat-list-item>
                 }
             </mat-list>
         }`,

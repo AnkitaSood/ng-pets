@@ -9,8 +9,9 @@ import {MatIconModule} from "@angular/material/icon";
   imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule, RouterLink],
   template: `
       <mat-toolbar>
-          <a routerLink="">Pet Gallery</a>
-          <button mat-icon-button (click)="toggleTheme()">
+          <a routerLink="/dogs-list">Dogs Gallery</a> | 
+          <a routerLink="/pets-list">Pets Gallery</a> 
+          <button mat-icon-button class="btn-theme-toggle" (click)="toggleTheme()">
               <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
           </button>
       </mat-toolbar>

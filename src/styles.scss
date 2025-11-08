@@ -2,7 +2,7 @@
 @use "sys-vars";
 
 .view-toggle {
-  margin-bottom: 20px;
+  margin-block-end: 1.25rem;
 }
 
 .pet-grid {
@@ -11,17 +11,20 @@
   gap: 2rem;
 }
 
-.list-image {
-  object-fit: cover;
-  margin-right: 16px;
+.pet-card {
+  inline-size: 21.875rem;
 }
 
 html, body {
-  height: 100%;
+  block-size: 100%;
 }
 
 .mat-mdc-form-field-subscript-wrapper:not(:has(mat-hint)):not(:has(mat-error)) {
   display: none; //hide wrapper when no hint or error is present else it takes up extra space
+}
+
+.mdc-list-item {
+  padding: 0;
 }
 
 body {

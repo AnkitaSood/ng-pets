@@ -10,11 +10,11 @@ bootstrapApplication(App, {
     providers: [
         provideRouter([
             {
-                path: '',
+                path: 'dogs-list',
                 loadComponent: () => import('./app/components/dogs-list/dogs-list.component').then(m => m.DogsListComponent)
             },
             {
-                path: 'pet-list',
+                path: 'pets-list',
                 loadComponent: () => import('./app/components/pet-list/pet-list.component').then(m => m.PetListComponent)
             },
             {
@@ -25,6 +25,11 @@ bootstrapApplication(App, {
                 path: 'adopt/:id',
                 loadComponent: () => import('./app/components/pet-form/pet-form.component').then(m => m.PetFormComponent)
             },
+            {
+                path: '',
+                redirectTo: 'dogs-list',
+                pathMatch: 'full'
+            }
         ], withViewTransitions()),
         provideHttpClient()
 
