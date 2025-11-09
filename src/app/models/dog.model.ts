@@ -1,3 +1,5 @@
+import {HttpResourceRef} from "@angular/common/http";
+
 export type DogBreedsListResponse = {
     message: {
         [breed: string]: string[];
@@ -6,3 +8,8 @@ export type DogBreedsListResponse = {
 }
 
 export type DogImageResponse = { message: string; status: string }
+
+export type Dog = {
+    breedName: string;
+    imageUrl: string;
+}

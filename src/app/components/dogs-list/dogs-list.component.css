@@ -1,0 +1,7 @@
+.pet-card-title {
+    text-transform: capitalize;
+}
+
+.pet-card-image {
+    object-fit: fill;
+}

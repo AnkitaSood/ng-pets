@@ -1,34 +1,35 @@
-@if (dogs()) {
-    <h2>Dog Breeds</h2>
-    <mat-button-toggle-group class="view-toggle" [(value)]="viewMode">
-        <mat-button-toggle value="grid">
-            Grid View
-        </mat-button-toggle>
-        <mat-button-toggle value="list">
-            List View
-        </mat-button-toggle>
-    </mat-button-toggle-group>
-    @if (viewMode === 'grid') {
-        <section class="pet-grid">
-            @for (breed of dogs()?.message | keyvalue; track breed.key) {
-                <mat-card class="pet-card">
-                    <mat-card-header>
-                        <mat-card-title>{{ breed.key }}</mat-card-title>
-                    </mat-card-header>
-                </mat-card>
-            }
-        </section>
+@let dogs = dogs$ | async;
+<h2>Dog Breeds</h2>
+<mat-button-toggle-group class="view-toggle" [(value)]="viewMode">
+    <mat-button-toggle value="grid">
+        Grid View
+    </mat-button-toggle>
+    <mat-button-toggle value="list">
+        List View
+    </mat-button-toggle>
+</mat-button-toggle-group>
+@if (viewMode === 'grid') {
+    <section class="pet-grid">
+        @for (dog of dogs; track dog.breedName) {
+            <mat-card class="pet-card">
+                <mat-card-header>
+                    <mat-card-title class="pet-card-title">{{ dog.breedName }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <img class="pet-card-image" [ngSrc]="dog.imageUrl" [alt]="dog.breedName" height="250" width="300"/>
+                </mat-card-content>
+            </mat-card>
+        }
+    </section>
 
-    }
-    @if (viewMode === 'list') {
+}
+@if (viewMode === 'list') {
     <mat-list>
-        @for (breed of dogs()?.message | keyvalue; track breed.key) {
-            <mat-list-item class="pet-list-item">
-                <div matListItemTitle>{{ breed.key }}</div>
+        @for (dog of dogs; track dog.breedName) {
+            <mat-list-item>
+                <img matListItemAvatar [src]="dog.imageUrl" [alt]="dog.breedName"/>
+                <h3 matListItemTitle>{{ dog.breedName }}</h3>
             </mat-list-item>
         }
     </mat-list>
-    }
-} @else {
-    <p>Loading...</p>
 }
