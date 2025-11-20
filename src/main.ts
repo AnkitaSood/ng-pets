@@ -1,3 +1,4 @@
+import { provideZoneChangeDetection } from "@angular/core";
 import {bootstrapApplication} from '@angular/platform-browser';
 import {provideRouter, withViewTransitions} from '@angular/router';
 
@@ -8,7 +9,7 @@ import {provideHttpClient} from "@angular/common/http";
 
 bootstrapApplication(App, {
     providers: [
-        provideRouter([
+        provideZoneChangeDetection(),provideRouter([
             {
                 path: 'dogs-list',
                 loadComponent: () => import('./app/components/dogs-list/dogs-list.component').then(m => m.DogsListComponent)
