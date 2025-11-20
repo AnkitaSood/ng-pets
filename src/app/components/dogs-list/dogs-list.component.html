@@ -16,7 +16,7 @@
                     <mat-card-title class="pet-card-title">{{ dog.breedName }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <img class="pet-card-image" [ngSrc]="dog.imageUrl" [alt]="dog.breedName" height="250" width="300"/>
+                    <img class="pet-card-image" [ngSrc]="dog.imageUrl" [alt]="dog.breedName" height="250" width="300" priority/>
                 </mat-card-content>
             </mat-card>
         }
@@ -28,7 +28,7 @@
         @for (dog of dogs; track dog.breedName) {
             <mat-list-item>
                 <img matListItemAvatar [src]="dog.imageUrl" [alt]="dog.breedName"/>
-                <h3 matListItemTitle>{{ dog.breedName }}</h3>
+                <h3 matListItemTitle class="pet-card-title">{{ dog.breedName }}</h3>
             </mat-list-item>
         }
     </mat-list>
